@@ -13,6 +13,7 @@ fi
 if [ "$RUNNING" == "false" ]; then
   echo "$CONTAINER_NAME is no longer running. Shutting down $2"
   sleep 5
+  # import, use AWS CLI, not shell, to stop your instance to avoid any other charges
   aws sagemaker stop-notebook-instance --notebook-instance-name $2
   exit 2
 fi
